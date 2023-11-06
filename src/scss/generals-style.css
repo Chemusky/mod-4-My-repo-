@@ -1,0 +1,15 @@
+
+.layout-box {
+    max-inline-size: 1280px;
+    margin-inline: auto;
+    /* la primera propiedad (max-inline-size = max-width) se pone para que no llege a ocupar el
+    ancho completo. 
+    Destacar que los tamaños que se utilizan para que queden encajonada suelen ser 1280 1110 1100 */
+
+    /* Con margin inline auto se especifica que por el lado izquierdo
+    y derecho se centre */
+}
+
+
+
+

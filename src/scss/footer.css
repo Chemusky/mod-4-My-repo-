@@ -1,0 +1,85 @@
+footer {
+    margin-top: 50px;
+    background-color: #1a1d24;
+}
+
+
+footer div.size-container {
+    padding-block: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer div.footer-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+footer .footer-flex-links {
+    display: flex;
+    flex-direction: column;
+}
+
+footer .flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer .footer-newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+footer .flex-arrow {
+    display: flex;
+    border-bottom: 1px solid #808080;
+}
+
+footer .flex-arrow:hover {
+    border-bottom: 1px solid #e0011a;
+}
+
+footer .footer-flex-input-media {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer input {
+    padding-block-end: 15px;
+}
+
+.footer .arrow-input {
+    block-size: 23px;
+    inline-size: 23px;
+}
+
+
+.footer h4 {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.footer a,
+.footer p,
+.footer input {
+    font-size: 14px;
+    color: #a8a8a8;
+}
+
+.footer a {
+    cursor: pointer;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+.footer .footer-red-line {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}

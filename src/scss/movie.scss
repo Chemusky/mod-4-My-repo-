@@ -1,0 +1,319 @@
+
+// Estilos de las películas
+.buttons-container {
+  display: flex;
+  justify-content: right;
+  padding: 30px;
+  color: white;
+}
+
+.grid, .list {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  max-width: 1700px;
+  justify-content: flex-start;
+  align-items: start;
+  min-height: 100vh;
+}
+
+.movie {
+  width: 220px;
+  margin: 55px;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-poster {
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.movie-title {
+  margin-bottom: 2px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.movie-data {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.movie-description-heading {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.movie-description {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.movie-other {
+  line-height: 1.4;
+  padding: 5px 0;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.movie-other:last-child {
+  border: none;
+}
+
+.movie-other span {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+
+
+
+
+/* Inicio header */
+
+div.position-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #1a1d24;
+  /* No sería mala práctica poner el valor 10 debido a que queremos que 
+  siempre el header esté por encima de todo al hacer sticky */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  block-size: 90px;
+  background-color: #1a1d24;
+  /* padding-inline: 50px; */
+  /* block-size = height */
+}
+
+
+
+.header .nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  cursor: pointer;
+}
+
+.header .nav ul.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #ffffff;
+}
+
+.header .nav .menu .item {
+  font-size: 14px;
+  /* font-size = tamaño de fuente */
+  font-weight: bold;
+  /* font-weith = peso de fuente */
+  text-transform: uppercase;
+  /* text-transform = cambio entre mayúsculas y minúsculas */
+  border-bottom: 2px solid transparent;
+  /* se le ha puesto transparente para que 
+  cuando se haga hover sobre los elementos no se
+  suban arriba */
+  padding-block-end: 5px;
+  /* padding-block-end = padding bottom */
+}
+
+.header .nav .menu .item:hover {
+  cursor: pointer;
+  border-bottom: 2px solid #e0011a;
+}
+
+.header .nav ul.social {
+  /* Es un contenedor flex pero en este caso se omite
+  porque en la regla .header .nav ul ya está puesto el flex */
+  gap: 15px;
+}
+
+.header .tools {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+
+.header .menu .separator {
+  font-size: 15px;
+}
+
+.header .separator {
+  font-size: 25px;
+  color: #737373;
+}
+
+.header svg {
+  fill: #ffffff;
+  inline-size: 23px;
+  block-size: 23px;
+  cursor: pointer;
+  /* Fill Sirve para dar color al SVG */
+  /* inline-size = width */
+  /* block-size = height */
+}
+
+.header .search:hover {
+  fill: #40f30a;
+}
+
+.header .twitter:hover {
+  fill: #6de9ff;
+}
+
+.header .facebook:hover {
+  fill: #0281e9;
+}
+
+.header .insta:hover {
+  fill: #cb2e8e;
+}
+
+.header .youtube:hover {
+  fill: #e0011a;
+}
+// Fin HEADER
+
+
+
+// reset del navegador
+*:where( :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+
+  all: unset;
+
+  display: revert;
+
+}
+
+li {
+
+  list-style-type: none;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+// layout box 
+.layout-box {
+  max-inline-size: 1280px;
+  margin-inline: auto;
+  /* la primera propiedad (max-inline-size = max-width) se pone para que no llege a ocupar el
+  ancho completo. 
+  Destacar que los tamaños que se utilizan para que queden encajonada suelen ser 1280 1110 1100 */
+
+  /* Con margin inline auto se especifica que por el lado izquierdo
+  y derecho se centre */
+}
+
+
+
+
+
+// Footer
+footer {
+  margin-top: 50px;
+  background-color: #1a1d24;
+}
+
+
+footer div.size-container {
+  padding-block: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer div.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+footer .footer-flex-links {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+footer .footer-newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+footer .flex-arrow {
+  display: flex;
+  border-bottom: 1px solid #808080;
+}
+
+footer .flex-arrow:hover {
+  border-bottom: 1px solid #e0011a;
+}
+
+footer .footer-flex-input-media {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer input {
+  padding-block-end: 15px;
+}
+
+.footer .arrow-input {
+  block-size: 23px;
+  inline-size: 23px;
+}
+
+
+.footer h4 {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.footer a,
+.footer p,
+.footer input {
+  font-size: 14px;
+  color: #a8a8a8;
+}
+
+.footer a {
+  cursor: pointer;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+.footer .footer-red-line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
