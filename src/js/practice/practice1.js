@@ -26,6 +26,15 @@ function addMoviesGrid(params) {
   }
 }
 
+function addMoviesList(params) {
+  // este bucle sirve para poner todas las pelis
+  for (let i = 0; i < movies.length; i++) {
+    const movie = movies[i];
+    const movieElement = createMovieElement(movie);
+    movieContainer.appendChild(movieElement);
+  }
+}
+
 function clickGrid() {
   movieContainer.innerHTML = "";
   addMoviesGrid();
@@ -34,7 +43,7 @@ function clickGrid() {
 
 function clickList() {
   movieContainer.innerHTML = "";
-
+  addMoviesList();
 }
 
 
