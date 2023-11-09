@@ -21,7 +21,7 @@ function addMoviesGrid(params) {
   // este bucle sirve para poner todas las pelis
   for (let i = 0; i < movies.length; i++) {
     const movie = movies[i];
-    const movieElement = createMovieElement(movie);
+    const movieElement = createMovieElementGrid(movie);
     movieContainer.appendChild(movieElement);
   }
 }
@@ -30,7 +30,7 @@ function addMoviesList(params) {
   // este bucle sirve para poner todas las pelis
   for (let i = 0; i < movies.length; i++) {
     const movie = movies[i];
-    const movieElement = createMovieElement(movie);
+    const movieElement = createMovieElementList(movie); 
     movieContainer.appendChild(movieElement);
   }
 }
@@ -55,6 +55,7 @@ document.querySelector("#root").appendChild(movieContainer);
 
 
 
+// crear elementos para el grid
 
 function createPosterElement(path) {
   const moviePosterWidth = 400;
@@ -114,7 +115,7 @@ function createCategoryElement(category) {
 }
 
 // TO BE COMPLETED (Add description, director, etc.)
-function createMovieElement(movieObj) {
+function createMovieElementGrid(movieObj) {
   const movieElement = document.createElement("div");
   movieElement.className = "movie";
   movieElement.appendChild(createPosterElement(movieObj.poster));
@@ -129,3 +130,35 @@ function createMovieElement(movieObj) {
 }
 
 
+
+
+
+
+
+
+// crear elementos para el list
+function createPosterElementList(path) {
+  const moviePosterWidth = 170;
+  const element = document.createElement("img");
+  element.src = getMoviePosterUrl(path, moviePosterWidth);
+  element.className = "movie-img";
+  return element;
+}
+
+
+
+
+
+function createMovieElementList(movieObj) {
+  const movieElement = document.createElement("div");
+  movieElement.className = "movie";
+  movieElement.appendChild(createPosterElementList(movieObj.img));
+  movieElement.appendChild(createTitleElement(movieObj.title));
+  movieElement.appendChild(createDataElement(movieObj.rating, movieObj.year));
+  movieElement.appendChild(createSumaryElement());
+  movieElement.appendChild(createDescriptionElement(movieObj.description));
+  movieElement.appendChild(createDirectorElement(movieObj.director));
+  movieElement.appendChild(createActorsElement(movieObj.actors));
+  movieElement.appendChild(createCategoryElement(movieObj.category));
+  return movieElement;
+}

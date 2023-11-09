@@ -84,6 +84,8 @@
 
 
 /* cards en filas */
+
+// cambiar los valores de clase para las filas
 // .section-1,
 // .section-2 {
 //     display: flex;
@@ -121,10 +123,10 @@
 //     font-weight: bold;
 // }
 
-// .movie-poster {
-//     border-radius: 8px;
-//     block-size: 220px;
-// }
+ .movie-img {
+     border-radius: 8px;
+     block-size: 220px;
+ }
 
 // .movie-title {
 //     font-size: 1.2em;
