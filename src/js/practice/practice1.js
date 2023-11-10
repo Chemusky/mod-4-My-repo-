@@ -2,8 +2,7 @@ import { movies } from "../data/movies";
 import { getMoviePosterUrl } from "../utils/movie-utils";
 
 
-const movieContainer = document.createElement("div");
-movieContainer.className = "movie-container";
+
 
 
 
@@ -17,39 +16,40 @@ gridButton.addEventListener("click", clickGrid);
 listButton.addEventListener("click", clickList);
 
 
-function addMoviesGrid(params) {
-  // este bucle sirve para poner todas las pelis
+function clickGrid() {
+  const movieContainer = document.createElement("div");
+  movieContainer.className = "movie-container";
+  document.querySelector("#root").innerHTML = "";
+
   for (let i = 0; i < movies.length; i++) {
     const movie = movies[i];
     const movieElement = createMovieElementGrid(movie);
     movieContainer.appendChild(movieElement);
   }
+  document.querySelector("#root").appendChild(movieContainer);
+  // addMoviesGrid();
 }
 
-function addMoviesList(params) {
-  // este bucle sirve para poner todas las pelis
+
+function clickList() {
+  const movieContainer = document.createElement("div");
+  movieContainer.className = "list-movie-container";
+  document.querySelector("#root").innerHTML = "";
+
   for (let i = 0; i < movies.length; i++) {
     const movie = movies[i];
     const movieElement = createMovieElementList(movie);
     movieContainer.appendChild(movieElement);
   }
-}
-
-function clickGrid() {
-  movieContainer.innerHTML = "";
-  addMoviesGrid();
-}
-
-
-function clickList() {
-  movieContainer.innerHTML = "";
-  addMoviesList();
+  document.querySelector("#root").appendChild(movieContainer);
+  // addMoviesList();
 }
 
 
 // al poner aquí esta funcion addMoviesGrid() hace que la página cargue automaticamente con la rejilla
-addMoviesGrid();
-document.querySelector("#root").appendChild(movieContainer);
+// addMoviesGrid();
+clickGrid()
+
 
 /*********************************************************************************/
 
@@ -138,14 +138,13 @@ function createMovieElementGrid(movieObj) {
 
 //  List elements
 
-const listMovieContainer = document.createElement("div");
-listMovieContainer.className = "list-movie-container";
+
 
 function createPosterElementList(path) {
-  const moviePosterWidth = 170;
+  const moviePosterWidth = 200;
   const element = document.createElement("img");
   element.src = getMoviePosterUrl(path, moviePosterWidth);
-  element.className = "movie-img";
+  element.className = "list-movie-img";
   return element;
 }
 
@@ -165,6 +164,19 @@ function createDataElementList(rating, year) {
   return element;
 }
 
+function createOtherElement1List(director) {
+  const element = document.createElement("div");
+  element.className = "list-movie-other";
+  element.textContent = `Director: ${director}`;
+  return element
+}
+
+function createOtherElement2List(actors) {
+  const element = document.createElement("div");
+  element.className = "list-movie-other";
+  element.textContent = `Actores: ${actors}`;
+  return element
+}
 
 function createMovieElementList(movieObj) {
   const movieElement = document.createElement("div");
@@ -172,10 +184,7 @@ function createMovieElementList(movieObj) {
   movieElement.appendChild(createPosterElementList(movieObj.poster));
   movieElement.appendChild(createTitleElementList(movieObj.title));
   movieElement.appendChild(createDataElementList(movieObj.rating, movieObj.year));
-  // movieElement.appendChild(createSumaryElement());
-  // movieElement.appendChild(createDescriptionElement(movieObj.description));
-  // movieElement.appendChild(createDirectorElement(movieObj.director));
-  // movieElement.appendChild(createActorsElement(movieObj.actors));
-  // movieElement.appendChild(createCategoryElement(movieObj.category));
+  movieElement.appendChild(createOtherElement1List(movieObj.director));
+  movieElement.appendChild(createOtherElement2List(movieObj.actors));
   return movieElement;
 }
