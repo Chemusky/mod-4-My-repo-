@@ -30,7 +30,7 @@ function addMoviesList(params) {
   // este bucle sirve para poner todas las pelis
   for (let i = 0; i < movies.length; i++) {
     const movie = movies[i];
-    const movieElement = createMovieElementList(movie); 
+    const movieElement = createMovieElementList(movie);
     movieContainer.appendChild(movieElement);
   }
 }
@@ -55,7 +55,7 @@ document.querySelector("#root").appendChild(movieContainer);
 
 
 
-// crear elementos para el grid
+//  Grid elements
 
 function createPosterElement(path) {
   const moviePosterWidth = 400;
@@ -131,12 +131,16 @@ function createMovieElementGrid(movieObj) {
 
 
 
+/*********************************************************************************/
 
 
 
 
+//  List elements
 
-// crear elementos para el list
+const listMovieContainer = document.createElement("div");
+listMovieContainer.className = "list-movie-container";
+
 function createPosterElementList(path) {
   const moviePosterWidth = 170;
   const element = document.createElement("img");
@@ -146,19 +150,32 @@ function createPosterElementList(path) {
 }
 
 
+function createTitleElementList(title) {
+  const element = document.createElement("div");
+  element.className = "list-movie-title";
+  element.textContent = title;
+  return element;
+}
 
+
+function createDataElementList(rating, year) {
+  const element = document.createElement("div");
+  element.className = "list-movie-data";
+  element.textContent = `Rating: ${rating} | ${year}`;
+  return element;
+}
 
 
 function createMovieElementList(movieObj) {
   const movieElement = document.createElement("div");
-  movieElement.className = "movie";
-  movieElement.appendChild(createPosterElementList(movieObj.img));
-  movieElement.appendChild(createTitleElement(movieObj.title));
-  movieElement.appendChild(createDataElement(movieObj.rating, movieObj.year));
-  movieElement.appendChild(createSumaryElement());
-  movieElement.appendChild(createDescriptionElement(movieObj.description));
-  movieElement.appendChild(createDirectorElement(movieObj.director));
-  movieElement.appendChild(createActorsElement(movieObj.actors));
-  movieElement.appendChild(createCategoryElement(movieObj.category));
+  movieElement.className = "list-movie";
+  movieElement.appendChild(createPosterElementList(movieObj.poster));
+  movieElement.appendChild(createTitleElementList(movieObj.title));
+  movieElement.appendChild(createDataElementList(movieObj.rating, movieObj.year));
+  // movieElement.appendChild(createSumaryElement());
+  // movieElement.appendChild(createDescriptionElement(movieObj.description));
+  // movieElement.appendChild(createDirectorElement(movieObj.director));
+  // movieElement.appendChild(createActorsElement(movieObj.actors));
+  // movieElement.appendChild(createCategoryElement(movieObj.category));
   return movieElement;
 }

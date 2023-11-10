@@ -35,6 +35,8 @@
  const movieContainer = document.createElement("div");
  movieContainer.className = "movie-container";
 
+ 
+
  for (let i = 0; i < array.length; i++) {
      const movie = movies[i];
      const movieElement = createMovieElement(movie);
