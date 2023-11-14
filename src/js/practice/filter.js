@@ -46,16 +46,16 @@ async function filtrarDatos() {
     if (categoriesSelected != null && categoriesSelected.value !== "" && Object.keys(categories).includes(categoriesSelected.value)) {
 
       let filtrado = films.filter(movie => movie.category.toLowerCase() === categoriesSelected.value.toLowerCase())
-      console.log('96898');
+
 
       return filtrado;
+      
     } else {
-      console.log('2');
       return films;
     }
   }
 
- let as = await filtrarCategoria(copyMovies)
+  let as = await filtrarCategoria(copyMovies)
 
   console.log(as);
 
