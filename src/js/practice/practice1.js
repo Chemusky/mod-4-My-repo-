@@ -1,7 +1,34 @@
 import { movies } from "../data/movies";
 import { getMoviePosterUrl } from "../utils/movie-utils";
+import { filtrarDatos } from "./filter";
+
+const categories = Object.freeze({
+  drama: "Drama",
+  action: "Action",
+  crime: "Crime",
+  biography: "Biography",
+  adventure: "Adventure",
+  comedy: "Comedy",
+});
 
 
+const select = document.createElement('select');
+select.name = 'categories';
+select.id = 'categoriesSelected'
+select.addEventListener('change', ()=>{
+  const movieFilter = filtrarDatos(movies, categories)
+  clickGrid(movieFilter)
+})
+
+Object.entries(categories).forEach(entry => {
+  const option = document.createElement('option');
+  option.value = entry[0];
+  option.textContent = entry[1];
+  select.appendChild(option);
+})
+
+const div = document.querySelector('#select');
+div.appendChild(select);
 
 
 
@@ -16,7 +43,7 @@ gridButton.addEventListener("click", clickGrid);
 listButton.addEventListener("click", clickList);
 
 
-function clickGrid() {
+function clickGrid(movies) {
   const movieContainer = document.createElement("div");
   movieContainer.className = "movie-container";
   document.querySelector("#root").innerHTML = "";
@@ -48,7 +75,7 @@ function clickList() {
 
 // al poner aquí esta funcion addMoviesGrid() hace que la página cargue automaticamente con la rejilla
 // addMoviesGrid();
-clickGrid()
+clickGrid(movies)
 
 
 /*********************************************************************************/
