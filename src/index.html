@@ -17,7 +17,7 @@
 
 <body>
     <!-- en la cmd nos vamos hasta la carpeta mod4-practice y ponemos npm run serve y copiar http://localhost:8080/ -->
-    
+
     <!-- header -->
     <a id="target_element" href=""></a>
     <div class="position-sticky">
@@ -122,16 +122,19 @@
         </header>
     </div>
     <!-- FIN HEADER -->
-    
+
     
     <!-- Botones para mostrar las pelis -->
     <div class="buttons-container layout-box">
         
         <!-- Filtrado por categorías de las pelis -->
-    <div class="select-input layout-box">
-        <label for="select">Seleccione una categoría:</label>
-        <div class="layout-box select-style" id="select"></div>
-    </div>
+        <div class="select-input layout-box">
+            <label for="select">Seleccione una categoría:</label>
+            <div class="layout-box select-style" id="select"></div>
+        </div>
+        
+        <div class="sort-button" id="sortSelect">sfasdf</div>
+        
 
         <div class="buttons-grid-list">
             <a class="grid">
@@ -147,9 +150,9 @@
             </a>
             <!-- los iconos se han sacado de la web tabler icons -->
             <a class="list">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M4 6l16 0"></path>
                     <path d="M4 12l16 0"></path>
@@ -158,16 +161,17 @@
             </a>
         </div>
     </div>
-    
-    
+
+
 
     <!-- este div con id hace referencia a todas las pelis generadas con javascript -->
     <div id="root"></div>
-    
 
 
 
-    <!-- Footer --> <!-- No insertar el footer dentro del main porque se desajusta el ancho de la etiqueta footer -->
+
+    <!-- Footer -->
+    <!-- No insertar el footer dentro del main porque se desajusta el ancho de la etiqueta footer -->
     <footer class="footer">
         <div class="size-container layout-box">
             <div class="footer-logo">
@@ -317,4 +321,5 @@
 </body>
 
 <script src="js/exercises/e1-movie.js"></script>
+
 </html>

@@ -9,13 +9,25 @@
 .select-input {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #0281e9;
+}
+
+.select-input:hover label {
+  color: #40f30a;
+  transition: 1s;
 }
 
 .select-style {
   cursor: pointer;
-  color: #e0011a;
+  color: #910011;
   font-weight: bold;
+}
+
+.sort-button {
+  text-align: center;
 }
 
 .grid,
