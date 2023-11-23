@@ -1,7 +1,34 @@
 import { movies } from "../data/movies";
 import { getMoviePosterUrl } from "../utils/movie-utils";
 import { filtrarDatos } from "./filter";
+import { addSort } from "./sort";
+import { mostrarResultadosBusqueda } from "../practice/search";
+import { ordenarPeliculas } from "./sort";
+export let copiaMovies = movies.slice();
+export let isListView;
 
+
+
+
+//**Sort Button**//
+
+let sortMovies = document.querySelector("#sortSelect");
+let selectSort = document.createElement("select");
+selectSort.className = "sort-button";
+selectSort.addEventListener("change", showSortedMovies);
+
+addSort(selectSort);
+sortMovies.appendChild(selectSort);
+
+function showSortedMovies() {
+  copiaMovies = ordenarPeliculas(copiaMovies, selectSort.value);
+  if (isListView === true) {
+    clickList(copiaMovies);
+  } else {
+    clickGrid(copiaMovies);
+  }
+}
+showSortedMovies();
 const categories = Object.freeze({
   drama: "Drama",
   action: "Action",
@@ -15,7 +42,7 @@ const categories = Object.freeze({
 const select = document.createElement('select');
 select.name = 'categories';
 select.id = 'categoriesSelected'
-select.addEventListener('change', ()=>{
+select.addEventListener('change', () => {
   const movieFilter = filtrarDatos(movies, categories)
   clickGrid(movieFilter)
 })
@@ -35,6 +62,34 @@ div.appendChild(select);
 
 
 
+// Search button
+const inputSearch = document.querySelector("#searchSelect");
+
+inputSearch.addEventListener("keyup", () => {
+  let valor = inputSearch.value.toLowerCase();
+  copiaMovies = movies.filter((movie) => {
+    return (
+      movie.title.toLowerCase().includes(valor) ||
+      movie.director.toLowerCase().includes(valor) ||
+      movie.actors.toLowerCase().includes(valor) ||
+      movie.year.toString().includes(valor)
+    );
+  });
+  mostrarResultadosBusqueda(copiaMovies, isListView);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Add listeners to grid/list buttons
 const gridButton = document.querySelector(".grid");
 const listButton = document.querySelector(".list");
@@ -43,7 +98,7 @@ gridButton.addEventListener("click", clickGrid);
 listButton.addEventListener("click", clickList);
 
 
-function clickGrid(movies) {
+export function clickGrid(movies) {
   const movieContainer = document.createElement("div");
   movieContainer.className = "movie-container";
   document.querySelector("#root").innerHTML = "";
@@ -58,7 +113,7 @@ function clickGrid(movies) {
 }
 
 
-function clickList() {
+export function clickList() {
   const movieContainer = document.createElement("div");
   movieContainer.className = "list-movie-container";
   document.querySelector("#root").innerHTML = "";

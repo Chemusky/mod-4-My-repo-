@@ -15,20 +15,22 @@
   background-color: #0281e9;
 }
 
+input::placeholder {
+  color: #910011;
+  font-weight: bold;
+}
+
 .select-input:hover label {
   color: #40f30a;
   transition: 1s;
 }
 
-.select-style {
+.select-style, .sort-button {
   cursor: pointer;
   color: #910011;
   font-weight: bold;
 }
 
-.sort-button {
-  text-align: center;
-}
 
 .grid,
 .list {
